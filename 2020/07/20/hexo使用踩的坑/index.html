@@ -1,25 +1,229 @@
-extends includes/layout.pug
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
 
-block content
-  article#post(class="")
-    #article-container.post-content!=page.content
-    include includes/post/post-copyright.pug
-    .tag_share
-      if (theme.post_meta.post.tags)
-        .post-meta__tag-list
-          each item, index in page.tags.data
-            a(href=url_for(item.path)).post-meta__tags #[=item.name]
-      !=partial('includes/share/index', {}, {cache:theme.fragment_cache})
+  
+  <title>hexo使用踩的坑 | rxy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1、新建md文件后，写好博文发不出去，hexo命令出现错误，如下：INFO  Start processingERROR Process failed: _posts&#x2F;title.mdValidationError: slug is required!    at new WarehouseError (D:\blog\v2o5kw\node_modules\warehouse\lib\error">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo使用踩的坑">
+<meta property="og:url" content="https://v2o5kw.github.io/2020/07/20/hexo%E4%BD%BF%E7%94%A8%E8%B8%A9%E7%9A%84%E5%9D%91/index.html">
+<meta property="og:site_name" content="rxy">
+<meta property="og:description" content="1、新建md文件后，写好博文发不出去，hexo命令出现错误，如下：INFO  Start processingERROR Process failed: _posts&#x2F;title.mdValidationError: slug is required!    at new WarehouseError (D:\blog\v2o5kw\node_modules\warehouse\lib\error">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-19T16:47:38.000Z">
+<meta property="article:modified_time" content="2020-07-19T16:53:42.107Z">
+<meta property="article:author" content="rxy">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="rxy" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">rxy</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
         
-    if theme.reward.enable
-      !=partial('includes/post/reward', {}, {cache:theme.fragment_cache})
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://v2o5kw.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-hexo使用踩的坑" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/20/hexo%E4%BD%BF%E7%94%A8%E8%B8%A9%E7%9A%84%E5%9D%91/" class="article-date">
+  <time datetime="2020-07-19T16:47:38.000Z" itemprop="datePublished">2020-07-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      hexo使用踩的坑
+    </h1>
+  
 
-    //- ad
-    if theme.ad && theme.ad.post
-      .post-ad!=theme.ad.post
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、<br>新建md文件后，写好博文发不出去，hexo命令出现错误，如下：<br>INFO  Start processing<br>ERROR Process failed: _posts/title.md<br>ValidationError: <code>slug</code> is required!<br>    at new WarehouseError (D:\blog\v2o5kw\node_modules\warehouse\lib\error.js:14<br>:11)<br>    at new ValidationError (D:\blog\v2o5kw\node_modules\warehouse\lib\error\vali<br>dation.js:5:1)<br>    at SchemaTypeString.validate (D:\blog\v2o5kw\node_modules\warehouse\lib\sche<br>matype.js:100:13)<br>    at SchemaTypeString.validate (D:\blog\v2o5kw\node_modules\warehouse\lib\type<br>s\string.js:33:25)<br>    at Array.<anonymous> (D:\blog\v2o5kw\node_modules\warehouse\lib\schema.js:47<br>9:27)<br>    at Schema._applySetters (D:\blog\v2o5kw\node_modules\warehouse\lib\schema.js<br>:609:15)<br>    at _Model._insertOne (D:\blog\v2o5kw\node_modules\warehouse\lib\model.js:158<br>:12)<br>    at D:\blog\v2o5kw\node_modules\warehouse\lib\model.js:179:63<br>    at tryCatcher (D:\blog\v2o5kw\node_modules\bluebird\js\release\util.js:16:23<br>)<br>    at D:\blog\v2o5kw\node_modules\bluebird\js\release\using.js:185:26<br>    at tryCatcher (D:\blog\v2o5kw\node_modules\bluebird\js\release\util.js:16:23<br>)<br>    at Promise._settlePromiseFromHandler (D:\blog\v2o5kw\node_modules\bluebird\j<br>s\release\promise.js:547:31)<br>    at Promise._settlePromise (D:\blog\v2o5kw\node_modules\bluebird\js\release\p<br>romise.js:604:18)<br>    at Promise._settlePromise0 (D:\blog\v2o5kw\node_modules\bluebird\js\release<br>promise.js:649:10)<br>    at Promise._settlePromises (D:\blog\v2o5kw\node_modules\bluebird\js\release<br>promise.js:729:18)<br>    at Promise._fulfill (D:\blog\v2o5kw\node_modules\bluebird\js\release\promise<br>.js:673:18)<br>    at PromiseArray._resolve (D:\blog\v2o5kw\node_modules\bluebird\js\release\pr<br>omise_array.js:127:19)<br>    at PromiseArray._promiseFulfilled (D:\blog\v2o5kw\node_modules\bluebird\js\r<br>elease\promise_array.js:145:14)<br>    at Promise._settlePromise (D:\blog\v2o5kw\node_modules\bluebird\js\release\p<br>romise.js:609:26)<br>    at Promise._settlePromise0 (D:\blog\v2o5kw\node_modules\bluebird\js\release<br>promise.js:649:10)<br>    at Promise._settlePromises (D:\blog\v2o5kw\node_modules\bluebird\js\release<br>promise.js:729:18)<br>    at _drainQueueStep (D:\blog\v2o5kw\node_modules\bluebird\js\release\async.js<br>:93:12)<br>其实只要在_config.yml中改成如下形式：<br>#Writing<br>new_post_name: year-:month-:day-:title.md # File name of new posts<br>default_layout: post</p>
 
-    include includes/pagination.pug
-    if theme.related_post && theme.related_post.enable
-      != related_posts(page,site.posts)
-    if page.comments !== false
-      include includes/comments/index.pug
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://v2o5kw.github.io/2020/07/20/hexo%E4%BD%BF%E7%94%A8%E8%B8%A9%E7%9A%84%E5%9D%91/" data-id="ckcwtvj1t000154uq01uq34ey" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/20/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          汇编语言学习
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/17/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E2%80%9C/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">我的第一篇文章</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/" rel="tag">语言学习</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">语言学习</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/20/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">汇编语言学习</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/20/hexo%E4%BD%BF%E7%94%A8%E8%B8%A9%E7%9A%84%E5%9D%91/">hexo使用踩的坑</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/17/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E2%80%9C/">我的第一篇文章</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/17/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 rxy<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
